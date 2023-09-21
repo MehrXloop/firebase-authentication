@@ -1,53 +1,42 @@
 import React, { useState } from "react";
-import { useUserAuth } from "./UserAuthContext";
 import { useNavigate } from "react-router-dom";
-import './SignIn.css'
-import GoogleButton from "react-google-button";
-function SignIn() {
+import './form.css'
+import { useUserAuth } from "../context/UserAuthContext";
+
+
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  const {signIn , googleSignIn} = useUserAuth()
   const [error, setError] = useState("")
-  const handleSubmit =async (e) => {
+  const {signUp} = useUserAuth()
+  const navigate = useNavigate();
 
-      e.preventDefault();
-  
-      try{
-       await signIn(email,password)
-       setError("")
-       navigate("/chat")
-       console.log(email)
-      }catch(err){
-        setError(err.message)
-      }
-   
-    
-   
-   
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+
+    try{
+     await signUp(email,password)
+     setError("")
+     navigate("/signin")
+     console.log(email)
+    }catch(err){
+      setError(err.message)
+    }
   };
 
-  const handleGoogleSignIn = async (e)=>{
-    e.preventDefault()
-    try{
-        await googleSignIn()
-        navigate("/chat")
-    }catch(err){
-        setError(err.message)
-    }
-  }
   return (
-    <div className="container">
+    <div className='container'>
       <form onSubmit={(e) => handleSubmit(e)}>
-      <h1>Sign In</h1>
+      <h1>Sign Up</h1>
       {error && <p className="error">{error}</p>}
       <label htmlFor="email">Email:</label>
         <input
           name='email'
           placeholder='Email'
           type='email'
-          id="email"
           value={email}
+          id="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">Password:</label>
@@ -59,11 +48,10 @@ function SignIn() {
           id="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Sign In</button>
-        <GoogleButton onClick={handleGoogleSignIn}/>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
 }
 
-export default SignIn;
+export default SignUp;

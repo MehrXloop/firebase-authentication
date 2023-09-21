@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import RegisterAndLogin from './RegisterAndLogin';
+import RegisterAndLogin from './SignUp';
 import LandingPage from './LandingPage';
 function PasswordLoginWithFirebase() {
   return (

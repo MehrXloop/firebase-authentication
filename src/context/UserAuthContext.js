@@ -8,7 +8,7 @@ import {
     signInWithPopup
 } from "firebase/auth"
  
-import {auth} from "./FireBaseConfig"
+import {auth} from "../firebase/FireBaseConfig"
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({children}){

@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import RegisterAndLogin from "./RegisterAndLogin";
-import LandingPage from "./LandingPage";
-import SignIn from "./SignIn";
-import Chat from "./Chat";
-import { UserAuthContextProvider } from "./UserAuthContext";
-import ProtectedRoute from "./ProtectedRoute";
+import RegisterAndLogin from "./components/SignUp";
+import LandingPage from "./components/LandingPage";
+import SignIn from "./components/SignIn";
+import Chat from "./components/Chat";
+import { UserAuthContextProvider } from "./context/UserAuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <div className='App'>

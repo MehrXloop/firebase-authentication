@@ -1,5 +1,5 @@
 import React from 'react'
-import { useUserAuth } from './UserAuthContext'
+import { useUserAuth } from '../context/UserAuthContext'
 import { useNavigate } from "react-router-dom";
 
 function Chat() {
