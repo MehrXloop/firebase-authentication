@@ -1,23 +1,18 @@
-// import { signOut } from 'firebase/auth'
+
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 function LandingPage() {
     const navigate = useNavigate()
 
-    // function handleSignOut(){
-    //     signOut(database).then(val =>{
-    //       console.log(val,"val")
-    //       navigate("/")
-    //     })
-    // }
-
     function handleSignIn(){
       navigate("/signin")
     }
+
     function handleSignUp(){
       navigate("/signup")
     }
+    
   return (
     <div>
         <h1>This is Landing Page</h1> 
